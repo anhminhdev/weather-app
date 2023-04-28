@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(45deg, rgba(26, 223, 46, 0.685), transparent);
+  height: 100vh;
+}
+
+.container {
+  width: 400px;
+  background: linear-gradient(145deg, #2193b0, #6dd5ed);
+  color: white;
+  margin: 60px auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  border-radius: 7px;
+}
+.container .main-section {
+  padding-top: 15px;
+}
+.container .main-section .search-bar {
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  width: 50%;
+  padding-bottom: 3px;
+}
+.container .main-section .search-bar input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  font-size: 14px;
+  color: white;
+}
+.container .main-section .search-bar input::-moz-placeholder {
+  color: rgba(233, 233, 233, 0.678);
+}
+.container .main-section .search-bar input::placeholder {
+  color: rgba(233, 233, 233, 0.678);
+}
+.container .main-section .info-wrapper {
+  text-align: center;
+  margin-top: 70px;
+}
+.container .main-section .info-wrapper .city-name {
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+.container .main-section .info-wrapper .weather-state {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: whitesmoke;
+  font-size: 14px;
+  padding-top: 6px;
+}
+.container .main-section .info-wrapper img {
+  width: 80px;
+  height: 80px;
+}
+.container .main-section .info-wrapper .temperature {
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: 300;
+  position: relative;
+}
+.container .main-section .info-wrapper .temperature::after {
+  content: "o";
+  position: absolute;
+  right: 130px;
+  top: -6px;
+  font-size: 30px;
+}
+.container .additional-section {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid white;
+  margin-top: 80px;
+  padding: 12px 40px;
+}
+.container .additional-section .col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.container .additional-section .col .item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.container .additional-section .col .item .label {
+  font-weight: 600;
+}
+.container .additional-section .col .item .value {
+  font-weight: 400;
+}/*# sourceMappingURL=index.css.map */

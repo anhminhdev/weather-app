@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="shortcut icon" href="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" type="image/x-icon">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- link files js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+    integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/moment.js"></script>
+  <!-- styles -->
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <main class="container">
+    <section class="main-section">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" name="search-city" id="search-input" placeholder="Search city...">
+      </div>
+
+      <div class="info-wrapper">
+        <h2 class="city-name">--</h2>
+        <p class="weather-state">--</p>
+        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="weather-icon">
+        <p class="temperature">--</p>
+      </div>
+    </section>
+
+    <section class="additional-section">
+      <div class="col">
+        <div class="item">
+          <div class="label">Sunrise</div>
+          <div class="value"><span class="sunrise">--</span></div>
+        </div>
+        <div class="item">
+          <div class="label">Humidity</div>
+          <div class="value"><span class="humidity">--</span>%</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="item">
+          <div class="label">Sunset</div>
+          <div class="value"><span class="sunset">--</span></div>
+        </div>
+        <div class="item">
+          <div class="label">Wind speed</div>
+          <div class="value"><span class="wind-speed">--</span> km/h</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
