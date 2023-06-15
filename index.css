@@ -25,7 +25,7 @@ body {
   display: flex;
   margin: 0 auto;
   border-bottom: 1px solid white;
-  width: 50%;
+  width: 52%;
   padding-bottom: 3px;
 }
 .container .main-section .search-bar input {
@@ -41,6 +41,34 @@ body {
 }
 .container .main-section .search-bar input::placeholder {
   color: rgba(233, 233, 233, 0.678);
+}
+.container .main-section .search-bar .microphone {
+  cursor: pointer;
+}
+.container .main-section .search-bar .microphone.recording .recording-icon {
+  display: inline-block;
+}
+.container .main-section .search-bar .microphone.recording .fa-microphone {
+  display: none;
+}
+.container .main-section .search-bar .microphone .recording-icon {
+  display: none;
+  width: 10px;
+  height: 10px;
+  background-color: #e22d2d;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite linear;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 3px 0 rgba(201, 6, 6, 0.3);
+  }
+  65% {
+    box-shadow: 0 0 3px 5px rgba(201, 6, 6, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 3px 5px rgba(201, 6, 6, 0.3);
+  }
 }
 .container .main-section .info-wrapper {
   text-align: center;

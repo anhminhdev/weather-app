@@ -21,7 +21,7 @@ body {
       display: flex;
       margin: 0 auto;
       border-bottom: 1px solid white;
-      width: 50%;
+      width: 52%;
       padding-bottom: 3px;
       input {
         background-color: transparent;
@@ -32,6 +32,36 @@ body {
         color: white;
         &::placeholder {
           color: rgba(233, 233, 233, 0.678);
+        }
+      }
+      .microphone {
+        cursor: pointer;
+        &.recording {
+          .recording-icon {
+            display: inline-block;
+          }
+          .fa-microphone {
+            display: none;
+          }
+        }
+        .recording-icon {
+          display: none;
+          width: 10px;
+          height: 10px;
+          background-color: #e22d2d;
+          border-radius: 50%;
+          animation: pulse 1.5s infinite linear;
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 3px 0 rgba(201, 6, 6, 0.3);
+            }
+            65% {
+              box-shadow: 0 0 3px 5px rgba(201, 6, 6, 0.3);
+            }
+            100% {
+              box-shadow: 0 0 3px 5px rgba(201, 6, 6, 0.3);
+            }
+          }
         }
       }
     }

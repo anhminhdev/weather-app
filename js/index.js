@@ -31,3 +31,90 @@ searchInput.addEventListener('change', (e) => {
       windSpeed.innerHTML = (data.wind.speed * 3.6).toFixed() || DEFAULT_VALUE
     })
 })
+
+// Virtual Assistant
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+recognition.lang = 'vi-VI'
+recognition.continuous = false
+
+const synth = window.speechSynthesis
+
+const microphone = document.querySelector('.microphone')
+
+const speak = (text) => {
+  if (synth.speaking) {
+    console.error('Sorry, I am speaking...')
+    return
+  }
+
+  const utter = new SpeechSynthesisUtterance(text)
+  utter.onend = () => {
+    console.log('SpeechSynthesisUtterance.onend')
+  }
+  utter.onerror = (err) => {
+    console.error('SpeechSynthesisUtterance.onerror', err)
+  }
+
+  synth.speak(utter)
+}
+
+const handleVoice = (text) => {
+  console.log('text:', text)
+
+  const handleText = text.toLowerCase()
+  // "thời tiết tại đà nẵng" => ['thời tiết ', ' đà nẵng']
+  if (handleText.includes('thời tiết tại')) {
+    const location = handleText.split('tại')[1].trim()
+
+    console.log('location: ', location)
+    searchInput.value = location
+    const changeEvent = new Event('change')
+    searchInput.dispatchEvent(changeEvent)
+    return
+  }
+
+  const container = document.querySelector('.container')
+  if (handleText.includes('thay đổi màu nền')) {
+    const color = handleText.split('màu nền')[1].trim()
+    container.style.background = color
+    return
+  }
+  if (handleText.includes('màu nền mặc định')) {
+    container.style.background = ''
+    return
+  }
+
+  if (handleText.includes('mấy giờ')) {
+    const textToSpeech = `${moment().hours()} hours ${moment().minutes()} minutes`
+    speak(textToSpeech)
+    return
+  }
+
+  speak('Please try again')
+}
+
+microphone.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  recognition.start();
+  microphone.classList.add('recording')
+})
+
+recognition.onspeechend = () => {
+  recognition.stop()
+  microphone.classList.remove('recording')
+}
+
+recognition.onerror = (event) => {
+  console.error(`Speech recognition error detected: ${event.error}`);
+  microphone.classList.remove('recording')
+};
+
+
+recognition.onresult = (e) => {
+  console.log("onresult", e)
+  const text = e.results[0][0].transcript
+  handleVoice(text)
+}
